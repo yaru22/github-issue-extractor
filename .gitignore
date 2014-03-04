@@ -1,0 +1,10 @@
+#
+# .gitignore
+#
+
+/*.csv
+/.gitignore
+/configs/github.json
+/log/
+/node_modules/
+/npm-debug.log
