@@ -19,7 +19,7 @@ var OUTPUT_FILE = 'invoice-tasks.csv',
 var repoPath = process.argv[2],
     rowCount = 1;
 
-fs.writeFileSync(OUTPUT_FILE, ',Issue #,Title,Total Hours,Individual Hours,Invoice Item\n');
+fs.writeFileSync(OUTPUT_FILE, ',Issue #,Title,Total Hours,Invoice Item\n');
 rowCount++;
 
 process.argv.slice(3).map(function (milestone) {
@@ -37,14 +37,13 @@ process.argv.slice(3).map(function (milestone) {
     }
 
     console.log('Fetched milestone', milestone);
-    fs.appendFileSync(OUTPUT_FILE, util.format('"%s",,,,,\n', body[0].milestone.title));
+    fs.appendFileSync(OUTPUT_FILE, util.format('"%s",,,,\n', body[0].milestone.title));
     rowCount++;
 
     body.map(function (issue) {
-      fs.appendFileSync(OUTPUT_FILE, util.format(',"%s","%s",,"=D%s/2","=""#"" & B%s & "": "" & C%s"\n',
+      fs.appendFileSync(OUTPUT_FILE, util.format(',"%s","%s",,"=""#"" & B%s & "": "" & C%s"\n',
           issue.number,
           issue.title.replace(/"/g, '\''),
-          rowCount,
           rowCount,
           rowCount));
       rowCount++;
