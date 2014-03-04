@@ -2,10 +2,10 @@
 
 /**
  * Usage:
- *   node ./invoiceTaskExtractor.js <repo path> <milestone number 1> <milestone number 2> ...
+ *   node ./index.js <repo path> <milestone number 1> <milestone number 2> ...
  *
  *   e.g.
- *   node ./invoiceTaskExtractor.js yaru22/hello 1 12 13
+ *   node ./index.js yaru22/hello 1 12 13
  */
 var fs = require('fs'),
     request = require('request'),
