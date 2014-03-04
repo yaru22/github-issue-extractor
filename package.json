@@ -1,4 +1,11 @@
 {
+  "name": "github-issue-extractor",
+  "description": "Extracts issues from the specified milestones and generate .csv.",
+  "version": "0.1.0",
+  "license": "MIT",
+
+  "author": "Brian Park <yaru22@gmail.com>",
+
   "dependencies": {
     "request": "^2.34.0"
   }
