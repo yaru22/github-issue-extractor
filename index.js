@@ -114,4 +114,4 @@ outputFunctions.csv = function (data) {
   });
 };
 
-collectIssues(outputFunctions.all);
+collectIssues(outputFunctions.csv);
