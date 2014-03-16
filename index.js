@@ -52,19 +52,25 @@ function collectIssues(outputFunction) {
       milestoneObj.issues = [];
 
       body.map(function (issue) {
-        var estimateMatcher = /total estimate hours: (\d+(\.\d+)?) hours/m;
+        var timeEstimateMatcher = /time estimate: (\d+(\.\d+)?) hours/m;
+        var timeEntryMatcher = /time entry: (\d+(\.\d+)?) hours/m;
 
         var issueNumber = issue.number,
             issueTitle = issue.title.replace(/"/g, '\''),
-            issueEstimate = issue.body.toLowerCase().match(estimateMatcher);
-        if (issueEstimate) {
-          issueEstimate = parseFloat(issueEstimate[1]);
+            issueTimeEstimate = issue.body.toLowerCase().match(timeEstimateMatcher),
+            issueTimeEntry = issue.body.toLowerCase().match(timeEntryMatcher);
+        if (issueTimeEstimate) {
+          issueTimeEstimate = parseFloat(issueTimeEstimate[1]);
+        }
+        if (issueTimeEntry) {
+          issueTimeEntry = parseFloat(issueTimeEntry[1]);
         }
 
         milestoneObj.issues.push({
           number: issueNumber,
           title: issueTitle,
-          estimate: issueEstimate
+          timeEstimate: issueTimeEstimate,
+          timeEntry: issueTimeEntry
         });
       });
 
