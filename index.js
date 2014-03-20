@@ -52,8 +52,8 @@ function collectIssues(outputFunction) {
       milestoneObj.issues = [];
 
       body.map(function (issue) {
-        var timeEstimateMatcher = /time estimate: (\d+(\.\d+)?) hours/m;
-        var timeEntryMatcher = /time entry: (\d+(\.\d+)?) hours/m;
+        var timeEstimateMatcher = /time estimate: (\d+(\.\d+)?) hours?/m;
+        var timeEntryMatcher = /time entry: (\d+(\.\d+)?) hours?/m;
 
         var issueNumber = issue.number,
             issueTitle = issue.title.replace(/"/g, '\''),
