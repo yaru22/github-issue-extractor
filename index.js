@@ -113,7 +113,7 @@ outputFunctions.csv = function (data) {
         util.format(',"%s","%s","%s","=""#"" & B%s & "": "" & C%s"',
             issue.number,
             issue.title,
-            issue.estimate,
+            issue.timeEntry,
             rowCount,
             rowCount)
       );
